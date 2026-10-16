@@ -120,59 +120,79 @@
 // }
 
 // export default App
-import React, { useState,useEffect } from 'react';
-import bg from './assets/photo.jpg'
-import './index.css'
-import Button from './component/ui/button/index.jsx';
-const app = () =>{
-  const [data, setData]=useState([])
-  useEffect(()=>{
-    const fetchData = async()=>{
-      const response = await fetch("https://jsonplaceholder.typicode.com/users")
-      const data = await response.json()
-      setData(data);
-    }
-    fetchData()
-  },[]);
-  console.log(data,"data")
-  return(
-    <div className='cd'>
-      <h2>User Details</h2>
-      <div className="user-list">
-    {data?.map((item,key)=>{
-      return(
-        <div className='dc'>
-        <div key={key}>
-          <label>Name:{item.name}</label>
+// import React, { useState,useEffect } from 'react';
+// import bg from './assets/photo.jpg'
+// import './index.css'
+// import Button from './component/ui/button/index.jsx';
+// const app = () =>{
+//   const [data, setData]=useState([])
+//   useEffect(()=>{
+//     const fetchData = async()=>{
+//       const response = await fetch("https://jsonplaceholder.typicode.com/users")
+//       const data = await response.json()
+//       setData(data);
+//     }
+//     fetchData()
+//   },[]);
+//   console.log(data,"data")
+//   return(
+//     <div className='cd'>
+//       <h2>User Details</h2>
+//       <div className="user-list">
+//     {data?.map((item,key)=>{
+//       return(
+//         <div className='dc'>
+//         <div key={key}>
+//           <label>Name:{item.name}</label>
           
-          <label>Email:{item.email}</label>
+//           <label>Email:{item.email}</label>
           
-          <label>City:{item.address.city}</label>
+//           <label>City:{item.address.city}</label>
           
-          <label>Latitude:{item.address.geo.lat}</label>
+//           <label>Latitude:{item.address.geo.lat}</label>
           
-          <label>Langtitude:{item.address.geo.lng}</label>
+//           <label>Langtitude:{item.address.geo.lng}</label>
           
-          </div>
-          </div>
+//           </div>
+//           </div>
            
-      )
-    })}
-    </div>
-    </div>
-  )
+//       )
+//     })}
+//     </div>
+//     </div>
+//   )
     
  
 
-//     return(
-//      <body>
-//      <div class="get">
+// //     return(
+// //      <body>
+// //      <div class="get">
      
-//        <h1>Welcome to My Photos</h1>
-//        <img className="css" src={bg} alt='My pIcture'></img><br></br>
-//        <Button name={"HelloBuddy"} onClick={()=>alert("Welcome Buddy")}/>
-//      </div>
-//        </body>
-//   ) 
- }
-export default app;
+// //        <h1>Welcome to My Photos</h1>
+// //        <img className="css" src={bg} alt='My pIcture'></img><br></br>
+// //        <Button name={"HelloBuddy"} onClick={()=>alert("Welcome Buddy")}/>
+// //      </div>
+// //        </body>
+// //   ) 
+//  }
+// export default app;
+
+
+import { useState } from "react";
+import Title from "./component/ui/title/Titel.jsx";
+
+function App() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <>
+            <Title count={count} />
+
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
+        </>
+    );
+}
+
+export default App;
